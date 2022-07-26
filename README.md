@@ -1,16 +1,16 @@
 # Comandos para la aplicacion
 
-## Crear modelo dojo y ninja
+### Crear modelo dojo y ninja
 * rails g model dojo name:string city:string state:string
 * Nota: se debe realizar la migracion primero para realizar la referencia que viene en el siguiente punto (comando: **_rails db:migrate_**)
 * rails g model ninja first_name:string last_name:string dojo:references
 
-## Creacion de dojos
+### Creacion de dojos
 * Dojo.create(name:"CodingDojo Silicon Valley", city:"Mountain View", state:"CA")
 * Dojo.create(name:"CodingDojo Seattle", city:"Seattle", state:"WA")
 * Dojo.create(name:"CodingDojo New York", city:"New York", state:"NY")
 
-## Creacion de Ninja
+### Creacion de Ninja
 * Ninja.create(first_name:"Cristian", last_name:"Uribe",dojo_id:1)
 * Ninja.create(first_name:"Gaby", last_name:"Rodriguez",dojo_id:1)
 * Ninja.create(first_name:"Sthephanie", last_name:"Jimenez",dojo_id:1)
@@ -23,24 +23,24 @@
 * Ninja.create(first_name:"Rosmery", last_name:"Gonzalez",dojo_id:3)
 * Ninja.create(first_name:"Jorge", last_name:"Martin",dojo_id:3)
 
-# Creacion Dojos con comando new
+### Creacion Dojos con comando new
 * dojo = Dojo.new(name:"CodingDojo Silicon Valley", city:"Mountain View", state:"CA")
 * dojo.save
 
-# Eliminacion de dojo
+### Eliminacion de dojo
 * Dojo.find(4).destroy
 
-## Validaciones de dojo
+### Validaciones de dojo
 * Dojo.create!(name:"", city:"", state:"")
 * **_C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/activerecord-6.1.6.1/lib/active_record/validations.rb:80:in `raise_validation_error': Validation failed: Name can't be blank, City can't be blank, State can't be blank, State is the wrong length (should be 2 characters) (ActiveRecord::RecordInvalid)_**
 
-## Obtner ninjas de cualquier dojo
+### Obtner ninjas de cualquier dojo
 * Dojo.find(1).ninjas
 
-## Obtner ninjas del segundo dojo en orden descendiente 
+### Obtner ninjas del segundo dojo en orden descendiente 
 * Dojo.find(2).ninjas.order("created_at desc")
 
-## Al modificar el modelo dojo y eliminar el dojo con id 2 el resultado da lo siguiente:
+### Al modificar el modelo dojo y eliminar el dojo con id 2 el resultado da lo siguiente:
 * Comando: Dojo.find(2).destroy
 * Respuesta: 
 * (1.7ms)  SELECT sqlite_version(*)
